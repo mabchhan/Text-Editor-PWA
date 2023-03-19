@@ -23,12 +23,12 @@ export const putDb = async (content) => {
   // Open up the desired object store.
   const store = transac.objectStore("jate");
 
-  // Use the .add() method on the store and pass in the content.
-  const request = store.add({ jate: content });
+  // Use the .put() method on the store and pass in the content.
+  const request = store.put({ id: 0, value: content });
 
   // Get confirmation of the request.
   const result = await request;
-  console.log("data saved to the database", result);
+  console.log("data saved to the database", result.value);
 };
 
 // method that gets all the content from the database
@@ -42,12 +42,16 @@ export const getDb = async () => {
   // Open up the desired object store.
   const store = transac.objectStore("jate");
 
-  // Use the .getAll() method to get all data in the database.
-  const request = store.getAll();
+  // Use the .get() method to get  data in the database.
+  const request = store.get(0);
 
   // Get confirmation of the request.
   const result = await request;
   //console.log("result.value", result);
-  return result;
+  if (result) {
+    return result.value;
+  } else {
+    console.log("No data found in database.");
+  }
 };
 initdb();
