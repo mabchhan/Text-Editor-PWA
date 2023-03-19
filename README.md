@@ -23,7 +23,7 @@ User can clone repository from Github, run npm install and then run npm start.
 
 ## Usage
 
-This application can use to write code, with or without internet connection.
+This application can use to write code, with or without internet connection. You can view application on [Heroku](https://shielded-cove-26932.herokuapp.com/)
 
 ## License
 
